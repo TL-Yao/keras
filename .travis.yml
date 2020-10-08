@@ -27,3 +27,6 @@ install:
 
 script:
 - pytest tests/ --ignore=tests/docs --ignore=tests/keras/legacy/layers_test.py --ignore=tests/test_api.py
+after_success:
+  - bash <(curl -s https://copilot.blackducksoftware.com/ci/travis/scripts/upload)
+  - bash <(curl -s https://scripts.scantist.com/staging/ci-travis.sh)
